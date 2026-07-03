@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailored Perfection — The Signature Blazer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0B0B0B;
+  --charcoal:#2B2B2B;
+  --charcoal-soft:#3A3936;
+  --white:#FFFFFF;
+  --off:#F3F1EC;
+  --gold:#D4AF37;
+  --gold-soft:#E8CE7B;
+  --gold-dim:#8A742B;
+  --line:rgba(212,175,55,.22);
+  --maxw:1280px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+::selection{background:var(--gold);color:var(--black);}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button,select{font-family:inherit;cursor:pointer;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+@media(max-width:768px){.wrap{padding:0 22px;}}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:-0.01em;}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px;}
+.section-pad{padding:140px 0;}
+@media(max-width:768px){.section-pad{padding:84px 0;}}
+.eyebrow{
+  font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:22px;
+}
+.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
+.section-head{max-width:620px;margin-bottom:64px;}
+.section-head h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:16px;}
+.section-head p{color:#A8A49A;font-size:16px;font-weight:300;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== Stitch-line signature: a tailor's tape that traces the page ===== */
+#stitchTrack{position:fixed;top:0;left:0;width:3px;height:100%;z-index:150;pointer-events:none;}
+#stitchFill{position:absolute;top:0;left:0;width:100%;height:0%;background:linear-gradient(var(--gold),var(--gold-soft));box-shadow:0 0 12px rgba(212,175,55,.6);}
+.stitch-tick{position:fixed;left:3px;width:16px;height:1px;background:var(--gold-dim);z-index:150;pointer-events:none;opacity:.5;}
+
+/* ===== NAV ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,11,11,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);}
+nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:22px 40px;}
+@media(max-width:768px){nav{padding:18px 22px;}}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;letter-spacing:.02em;}
+.logo em{font-style:normal;color:var(--gold);}
+.navlinks{display:flex;gap:40px;font-size:13px;letter-spacing:.04em;color:#C9C5BA;}
+.navlinks a{transition:color .25s;position:relative;}
+.navlinks a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease);}
+.navlinks a:hover{color:var(--gold);}
+.navlinks a:hover::after{width:100%;}
+.nav-cta{padding:11px 24px;border:1px solid var(--gold);border-radius:2px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);transition:all .3s var(--ease);}
+.nav-cta:hover{background:var(--gold);color:var(--black);}
+.navburger{display:none;flex-direction:column;gap:5px;background:none;border:none;}
+.navburger span{width:22px;height:1.5px;background:var(--white);}
+@media(max-width:900px){.navlinks{display:none;}.nav-cta{display:none;}.navburger{display:flex;}}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:80px;
+  background:radial-gradient(ellipse 1000px 600px at 82% 20%,rgba(212,175,55,.12),transparent 60%),
+             radial-gradient(ellipse 700px 500px at 6% 90%,rgba(212,175,55,.05),transparent 60%);}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+@media(max-width:980px){.hero .wrap{grid-template-columns:1fr;}.hero{min-height:auto;padding-bottom:70px;}}
+.hero-copy{opacity:0;animation:fadeUp 1s var(--ease) .2s forwards;}
+.hero-copy h1{font-size:clamp(44px,6vw,78px);line-height:1.02;margin-bottom:26px;}
+.hero-copy h1 .accent{color:var(--gold);font-style:italic;}
+.hero-copy p{color:#B4B0A5;font-size:17px;max-width:440px;margin-bottom:40px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.cta-row{display:flex;gap:18px;flex-wrap:wrap;}
+.btn{padding:16px 32px;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;transition:all .3s var(--ease);}
+.btn-gold{background:var(--gold);color:var(--black);}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);}
+.btn-ghost{border:1px solid #4a4740;color:var(--white);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-visual{position:relative;perspective:1200px;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;}
+.tilt-card{position:relative;aspect-ratio:3/4;border-radius:4px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(150deg,#1e1c17,#0c0b09 65%);transition:transform .15s var(--ease);transform-style:preserve-3d;}
+.blazer-hero-svg{position:absolute;inset:0;width:100%;height:100%;}
+.tilt-card .sheen{position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(212,175,55,.14) 50%,transparent 60%);
+  transform:translateX(-120%);}
+.tilt-card:hover .sheen{transition:transform 1.1s var(--ease);transform:translateX(120%);}
+.data-tag{position:absolute;padding:7px 13px;border-radius:2px;background:rgba(11,11,11,.72);border:1px solid var(--gold-dim);
+  backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em;color:var(--gold-soft);animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+.tag1{top:10%;left:6%;animation-delay:.2s;}
+.tag2{bottom:14%;right:6%;animation-delay:1.6s;}
+
+.statbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 0;}
+.statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+@media(max-width:768px){.statbar .wrap{grid-template-columns:repeat(2,1fr);}}
+.stat-item{text-align:center;padding:0 10px;}
+.stat-item .mark{color:var(--gold);font-family:'Playfair Display',serif;font-size:22px;font-weight:600;display:block;margin-bottom:6px;}
+.stat-item .label{font-size:11px;color:#8B877D;letter-spacing:.08em;text-transform:uppercase;}
+
+/* ===== PRODUCT SHOWCASE ===== */
+.showcase-grid{display:grid;grid-template-columns:.55fr .45fr;gap:64px;align-items:start;}
+@media(max-width:980px){.showcase-grid{grid-template-columns:1fr;}}
+.main-frame{position:relative;aspect-ratio:4/5;border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  background:linear-gradient(160deg,#1c1a15,#0e0d0b 60%);cursor:zoom-in;}
+.main-frame svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s var(--ease);}
+.main-frame:hover svg{transform:scale(1.12);}
+.frame-label{position:absolute;bottom:18px;left:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);
+  background:rgba(11,11,11,.6);padding:6px 12px;border:1px solid var(--gold-dim);}
+.thumb-row{display:flex;gap:14px;margin-top:20px;}
+.thumb{flex:1;aspect-ratio:1/1;border:1px solid var(--line);border-radius:3px;overflow:hidden;cursor:pointer;opacity:.55;transition:all .3s var(--ease);
+  background:linear-gradient(160deg,#1c1a15,#0e0d0b 60%);}
+.thumb svg{width:100%;height:100%;}
+.thumb.active,.thumb:hover{opacity:1;border-color:var(--gold);}
+.showcase-detail h3{font-size:26px;margin-bottom:8px;}
+.showcase-detail .price{color:var(--gold);font-family:'Playfair Display',serif;font-size:22px;margin-bottom:22px;}
+.showcase-detail p{color:#A8A49A;margin-bottom:30px;}
+.view-list{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line);}
+.view-list button{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;border-bottom:1px solid var(--line);
+  padding:16px 4px;color:#C9C5BA;font-size:14px;letter-spacing:.03em;text-align:left;transition:color .25s;}
+.view-list button:hover,.view-list button.active{color:var(--gold);}
+.view-list button .idx{font-size:11px;color:#6b675e;margin-right:12px;}
+
+/* ===== FEATURES ===== */
+.feat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+@media(max-width:980px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr;}}
+.feat-card{background:var(--black);padding:38px 26px;transition:background .3s;}
+.feat-card:hover{background:#141210;}
+.feat-icon{width:34px;height:34px;margin-bottom:20px;color:var(--gold);}
+.feat-card h4{font-size:15px;font-family:'Inter';font-weight:600;margin-bottom:10px;letter-spacing:.01em;}
+.feat-card p{font-size:13px;color:#8B877D;}
+
+/* ===== CUSTOMIZE ===== */
+.custom-panel{display:grid;grid-template-columns:.5fr .5fr;gap:64px;align-items:center;
+  background:linear-gradient(150deg,#161410,#0c0b09);border:1px solid var(--line);border-radius:6px;padding:64px;}
+@media(max-width:980px){.custom-panel{grid-template-columns:1fr;padding:40px 26px;}}
+.custom-visual{position:relative;aspect-ratio:4/5;}
+.custom-visual svg{width:100%;height:100%;}
+.field-row{margin-bottom:26px;}
+.field-row label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8B877D;margin-bottom:10px;}
+.field-row select{width:100%;background:var(--black);border:1px solid #4a4740;color:var(--white);padding:14px 16px;font-size:14px;
+  border-radius:2px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);
+  background-position:calc(100% - 22px) center,calc(100% - 17px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+.field-row select:focus{border-color:var(--gold);}
+.swatch-row{display:flex;gap:10px;}
+.swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .25s;}
+.swatch.active{border-color:var(--gold);}
+.custom-total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:20px;margin:6px 0 26px;}
+.custom-total .amt{font-family:'Playfair Display',serif;color:var(--gold);font-size:24px;}
+.custom-btns{display:flex;gap:14px;flex-wrap:wrap;}
+
+/* ===== FABRIC ===== */
+.fabric-grid{display:grid;grid-template-columns:.45fr .55fr;gap:60px;align-items:center;}
+@media(max-width:900px){.fabric-grid{grid-template-columns:1fr;}}
+.bar-row{margin-bottom:26px;}
+.bar-row .bar-label{display:flex;justify-content:space-between;font-size:13px;color:#C9C5BA;margin-bottom:10px;letter-spacing:.02em;}
+.bar-label .pct{color:var(--gold);font-family:'Playfair Display',serif;}
+.bar-track{height:2px;background:#2A2822;position:relative;overflow:hidden;}
+.bar-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold));width:0;transition:width 1.4s var(--ease);}
+.bar-fill.in{width:var(--target);}
+.fabric-note{font-size:13px;color:#8B877D;margin-top:36px;max-width:400px;}
+.fabric-visual{aspect-ratio:1/1;border-radius:50%;position:relative;background:
+  conic-gradient(var(--gold) 0deg 288deg, var(--gold-dim) 288deg 342deg, #4a4740 342deg 360deg);}
+.fabric-visual::after{content:'';position:absolute;inset:22%;border-radius:50%;background:var(--black);
+  display:flex;align-items:center;justify-content:center;}
+.fabric-visual .center-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;color:var(--gold-soft);}
+.fabric-visual .center-label .n{font-size:30px;}
+.fabric-visual .center-label .s{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8B877D;}
+
+/* ===== DETAILS ===== */
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+@media(max-width:900px){.detail-grid{grid-template-columns:repeat(2,1fr);}}
+.detail-card{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--black);cursor:zoom-in;}
+.detail-card svg{width:100%;height:100%;transition:transform .5s var(--ease);}
+.detail-card:hover svg{transform:scale(1.15);}
+.detail-tag{position:absolute;bottom:14px;left:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);}
+
+/* ===== REVIEWS ===== */
+.review-track{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:900px){.review-track{grid-template-columns:1fr;}}
+.review-card{border:1px solid var(--line);border-radius:4px;padding:34px 28px;background:#121110;}
+.review-stars{color:var(--gold);font-size:14px;letter-spacing:3px;margin-bottom:18px;}
+.review-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;line-height:1.5;margin-bottom:22px;}
+.review-name{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8B877D;}
+
+/* ===== FOOTER ===== */
+footer{border-top:1px solid var(--line);padding:80px 0 34px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:50px;margin-bottom:60px;}
+@media(max-width:768px){.foot-grid{grid-template-columns:1fr 1fr;}}
+.foot-col h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-family:'Inter';font-weight:600;}
+.foot-col a{display:block;color:#A8A49A;font-size:14px;margin-bottom:12px;transition:color .25s;}
+.foot-col a:hover{color:var(--gold);}
+.foot-col p{color:#8B877D;font-size:13px;max-width:260px;}
+.signup-row{display:flex;border-bottom:1px solid #4a4740;margin-top:10px;}
+.signup-row input{flex:1;background:none;border:none;color:var(--white);padding:10px 0;font-size:13px;}
+.signup-row input::placeholder{color:#6b675e;}
+.signup-row button{background:none;border:none;color:var(--gold);font-size:12px;letter-spacing:.1em;text-transform:uppercase;}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:#6b675e;border-top:1px solid var(--line);padding-top:26px;}
+
+/* toast */
+#toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:var(--black);
+  padding:16px 30px;border-radius:2px;font-size:13px;letter-spacing:.04em;font-weight:600;opacity:0;pointer-events:none;
+  transition:all .4s var(--ease);z-index:200;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="stitchTrack"><div id="stitchFill"></div></div>
+
+<header>
+  <nav>
+    <div class="logo">MAISON <em>NOIR</em></div>
+    <div class="navlinks">
+      <a href="#showcase">The Blazer</a>
+      <a href="#features">Craft</a>
+      <a href="#customize">Customize</a>
+      <a href="#fabric">Fabric</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <a href="#customize" class="nav-cta">Shop Now</a>
+    <button class="navburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">The Signature Collection</div>
+      <h1>Tailored<br><span class="accent">Perfection</span></h1>
+      <p>A blazer designed for precision, confidence, and modern luxury — cut from 80% virgin wool and finished entirely by hand.</p>
+      <div class="cta-row">
+        <a href="#showcase" class="btn btn-gold">View Details</a>
+        <a href="#customize" class="btn btn-ghost">Customize Now</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="tilt-card" id="tiltCard">
+        <svg class="blazer-hero-svg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="400" fill="#0e0d0b"/>
+          <path d="M150 60 L110 90 L90 380 L130 380 L140 200 L150 170 L160 200 L170 380 L210 380 L190 90 Z" fill="#1c1a17" stroke="#D4AF37" stroke-width="1"/>
+          <path d="M150 60 L110 90 L118 130 L150 100 Z" fill="#141210" stroke="#8A742B" stroke-width="1"/>
+          <path d="M150 60 L190 90 L182 130 L150 100 Z" fill="#141210" stroke="#8A742B" stroke-width="1"/>
+          <line x1="150" y1="105" x2="150" y2="375" stroke="#D4AF37" stroke-width="0.6" stroke-dasharray="4 5" opacity="0.5"/>
+          <circle cx="146" cy="230" r="3" fill="#D4AF37"/>
+          <circle cx="146" cy="260" r="3" fill="#D4AF37"/>
+          <circle cx="146" cy="290" r="3" fill="#D4AF37"/>
+        </svg>
+        <div class="sheen"></div>
+      </div>
+      <div class="data-tag tag1">80% Wool · Handmade</div>
+      <div class="data-tag tag2">Slim Fit · Gold Buttons</div>
+    </div>
+  </div>
+</section>
+
+<div class="statbar">
+  <div class="wrap">
+    <div class="stat-item"><span class="mark">120+</span><span class="label">Hand Stitches / Seam</span></div>
+    <div class="stat-item"><span class="mark">80%</span><span class="label">Virgin Wool</span></div>
+    <div class="stat-item"><span class="mark">14 Hrs</span><span class="label">Craft Time Per Piece</span></div>
+    <div class="stat-item"><span class="mark">3</span><span class="label">Colourways</span></div>
+  </div>
+</div>
+
+<!-- ===== SHOWCASE ===== -->
+<section class="section-pad" id="showcase">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Product Showcase</div>
+      <h2>Every Angle, Every Detail</h2>
+      <p>Rotate through the construction of the blazer — from silhouette to fabric weave.</p>
+    </div>
+    <div class="showcase-grid">
+      <div>
+        <div class="main-frame" id="mainFrame">
+          <svg id="mainSvg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="frame-label" id="frameLabel">Front View</div>
+        </div>
+        <div class="thumb-row" id="thumbRow"></div>
+      </div>
+      <div class="showcase-detail reveal">
+        <h3>The Signature Blazer</h3>
+        <div class="price">AED 2,450</div>
+        <p>A single-breasted silhouette in brushed virgin wool, structured through the shoulder and softened at the waist. Fully canvassed, hand-felled lining, horn-effect buttons finished in gold.</p>
+        <div class="view-list" id="viewList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section-pad" id="features" style="background:#0e0d0b;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Design Features</div>
+      <h2>What Sets It Apart</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="feat-grid">
+      <div class="feat-card reveal">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8 L12 3 L20 8 L20 20 L4 20 Z"/><path d="M8 8 L8 20 M16 8 L16 20"/></svg>
+        <h4>Premium Wool Fabric</h4>
+        <p>Brushed 80% virgin wool for structure and drape.</p>
+      </div>
+      <div class="feat-card reveal">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 L14 9 L21 9 L15.5 13.5 L17.5 21 L12 16.5 L6.5 21 L8.5 13.5 L3 9 L10 9 Z"/></svg>
+        <h4>Slim Fit Tailoring</h4>
+        <p>Contoured through the chest and waist for a modern line.</p>
+      </div>
+      <div class="feat-card reveal">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12 Q7 6 12 12 T21 12" stroke-dasharray="2 2"/><circle cx="3" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="21" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+        <h4>Handcrafted Stitching</h4>
+        <p>120+ hand-finished stitches reinforce every seam.</p>
+      </div>
+      <div class="feat-card reveal">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9 L20 9 M9 9 L9 20"/></svg>
+        <h4>Breathable Inner Lining</h4>
+        <p>Cupro lining regulates temperature and resists static.</p>
+      </div>
+      <div class="feat-card reveal">
+        <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>
+        <h4>Gold Accent Buttons</h4>
+        <p>Horn-effect buttons finished with a 24k gold plate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CUSTOMIZE ===== -->
+<section class="section-pad" id="customize">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Customization</div>
+      <h2>Make It Yours</h2>
+      <p>Select a size, colourway and fit — priced live as you build.</p>
+    </div>
+    <div class="custom-panel reveal">
+      <div class="custom-visual">
+        <svg id="customSvg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div>
+        <div class="field-row">
+          <label for="sizeSel">Size</label>
+          <select id="sizeSel"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select>
+        </div>
+        <div class="field-row">
+          <label>Colour</label>
+          <div class="swatch-row" id="swatchRow">
+            <div class="swatch active" data-color="#0B0B0B" style="background:#0B0B0B;" title="Black"></div>
+            <div class="swatch" data-color="#1C2333" style="background:#1C2333;" title="Navy"></div>
+            <div class="swatch" data-color="#C9B79C" style="background:#C9B79C;" title="Beige"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <label for="fitSel">Fit</label>
+          <select id="fitSel"><option selected>Slim</option><option>Regular</option></select>
+        </div>
+        <div class="custom-total">
+          <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8B877D;">Total</span>
+          <span class="amt" id="totalAmt">AED 2,450</span>
+        </div>
+        <div class="custom-btns">
+          <button class="btn btn-gold" id="addCartBtn">Add to Cart</button>
+          <button class="btn btn-ghost" id="customizeBtn">Customize Blazer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FABRIC ===== -->
+<section class="section-pad" id="fabric" style="background:#0e0d0b;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Fabric &amp; Material</div>
+      <h2>What It's Made Of</h2>
+    </div>
+    <div class="fabric-grid">
+      <div class="fabric-visual reveal">
+        <div class="center-label"><span class="n">80%</span><span class="s">Virgin Wool</span></div>
+      </div>
+      <div class="reveal" id="barPanel">
+        <div class="bar-row">
+          <div class="bar-label"><span>Virgin Wool</span><span class="pct">80%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="--target:80%;"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Polyester</span><span class="pct">15%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="--target:15%;"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Elastane</span><span class="pct">5%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="--target:5%;"></div></div>
+        </div>
+        <p class="fabric-note">Woven in a 280gsm twill for year-round wear, with just enough elastane to move with you through a full day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DETAILS ===== -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Design Details</div>
+      <h2>Close to the Craft</h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="detail-grid" id="detailGrid"></div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section-pad" id="reviews" style="background:#0e0d0b;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Customer Reviews</div>
+      <h2>Worn &amp; Trusted</h2>
+    </div>
+    <div class="review-track">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">"Perfect fit and premium quality."</div>
+        <div class="review-name">— Ahmed R., Dubai</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">"Feels like a designer piece."</div>
+        <div class="review-name">— Sofia M., Abu Dhabi</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">"Best blazer I've owned."</div>
+        <div class="review-name">— James K., London</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo" style="margin-bottom:14px;">MAISON <em>NOIR</em></div>
+        <p>Precision tailoring, cut and finished by hand for the modern wardrobe.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Brand</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="#showcase">The Blazer</a>
+        <a href="#customize">Customize</a>
+        <a href="#fabric">Fabric</a>
+      </div>
+      <div class="foot-col">
+        <h4>Stay Updated</h4>
+        <a href="#" style="margin-bottom:6px;">Instagram ↗</a>
+        <a href="#" style="margin-bottom:6px;">LinkedIn ↗</a>
+        <div class="signup-row">
+          <input type="email" placeholder="Email address" aria-label="Email address">
+          <button type="button" id="joinBtn">Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Maison Noir. All rights reserved.</span>
+      <span>Dubai, United Arab Emirates</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* ---------- SVG factory for blazer views ---------- */
+function blazerSVG(view){
+  const base = '<rect width="400" height="500" fill="#0e0d0b"/>';
+  const gold = '#D4AF37', dim='#8A742B', dark='#1c1a17';
+  if(view==='front'){
+    return base + `
+      <path d="M200 80 L145 118 L120 460 L175 460 L188 250 L200 210 L212 250 L225 460 L280 460 L255 118 Z" fill="${dark}" stroke="${gold}" stroke-width="1.2"/>
+      <path d="M200 80 L145 118 L156 168 L200 130 Z" fill="#141210" stroke="${dim}"/>
+      <path d="M200 80 L255 118 L244 168 L200 130 Z" fill="#141210" stroke="${dim}"/>
+      <line x1="200" y1="135" x2="200" y2="455" stroke="${gold}" stroke-width="0.6" stroke-dasharray="4 5" opacity="0.5"/>
+      <circle cx="195" cy="280" r="3.4" fill="${gold}"/><circle cx="195" cy="315" r="3.4" fill="${gold}"/><circle cx="195" cy="350" r="3.4" fill="${gold}"/>`;
+  }
+  if(view==='side'){
+    return base + `
+      <path d="M210 80 L170 120 L150 460 L230 460 L240 250 L235 130 Z" fill="${dark}" stroke="${gold}" stroke-width="1.2"/>
+      <path d="M210 80 L170 120 L180 165 L215 135 Z" fill="#141210" stroke="${dim}"/>
+      <line x1="215" y1="140" x2="200" y2="455" stroke="${gold}" stroke-width="0.6" stroke-dasharray="4 5" opacity="0.5"/>
+      <circle cx="205" cy="280" r="3" fill="${gold}"/><circle cx="203" cy="315" r="3" fill="${gold}"/>`;
+  }
+  if(view==='back'){
+    return base + `
+      <path d="M200 80 L145 118 L128 460 L272 460 L255 118 Z" fill="${dark}" stroke="${gold}" stroke-width="1.2"/>
+      <line x1="200" y1="120" x2="200" y2="460" stroke="${gold}" stroke-width="0.7" opacity="0.6"/>
+      <path d="M175 250 Q200 260 225 250" fill="none" stroke="${dim}" stroke-width="1"/>`;
+  }
+  // fabric close-up
+  let weave='';
+  for(let i=0;i<20;i++){ weave += `<line x1="0" y1="${i*26}" x2="400" y2="${i*26}" stroke="${dim}" stroke-width="0.6" opacity="0.35"/>`; }
+  for(let j=0;j<16;j++){ weave += `<line x1="${j*26}" y1="0" x2="${j*26}" y2="500" stroke="${gold}" stroke-width="0.5" opacity="0.25"/>`; }
+  return base + weave + `<rect x="0" y="0" width="400" height="500" fill="url(#weaveGrad)"/><defs><linearGradient id="weaveGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${gold}" stop-opacity="0.05"/><stop offset="1" stop-color="#000" stop-opacity="0.2"/></linearGradient></defs>`;
+}
+
+const views = [
+  {key:'front', label:'Front View'},
+  {key:'side', label:'Side View'},
+  {key:'back', label:'Back View'},
+  {key:'fabric', label:'Fabric Close-up'}
+];
+
+const mainSvg = document.getElementById('mainSvg');
+const frameLabel = document.getElementById('frameLabel');
+const thumbRow = document.getElementById('thumbRow');
+const viewList = document.getElementById('viewList');
+
+function setView(key,label){
+  mainSvg.innerHTML = blazerSVG(key);
+  frameLabel.textContent = label;
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.toggle('active', t.dataset.key===key));
+  document.querySelectorAll('.view-list button').forEach(b=>b.classList.toggle('active', b.dataset.key===key));
+}
+
+views.forEach((v,i)=>{
+  const th = document.createElement('div');
+  th.className = 'thumb' + (i===0?' active':'');
+  th.dataset.key = v.key;
+  th.innerHTML = `<svg viewBox="0 0 400 500">${blazerSVG(v.key)}</svg>`;
+  th.addEventListener('click', ()=>setView(v.key, v.label));
+  thumbRow.appendChild(th);
+
+  const btn = document.createElement('button');
+  btn.dataset.key = v.key;
+  btn.className = i===0 ? 'active' : '';
+  btn.innerHTML = `<span><span class="idx">0${i+1}</span>${v.label}</span><span>→</span>`;
+  btn.addEventListener('click', ()=>setView(v.key, v.label));
+  viewList.appendChild(btn);
+});
+setView('front','Front View');
+
+/* ---------- Detail close-ups ---------- */
+const details = [
+  {name:'Collar', key:'front'}, {name:'Buttons', key:'front'},
+  {name:'Stitching', key:'fabric'}, {name:'Inner Lining', key:'back'}
+];
+const detailGrid = document.getElementById('detailGrid');
+details.forEach(d=>{
+  const c = document.createElement('div');
+  c.className = 'detail-card reveal';
+  c.innerHTML = `<svg viewBox="0 0 400 500">${blazerSVG(d.key)}</svg><div class="detail-tag">${d.name}</div>`;
+  detailGrid.appendChild(c);
+});
+
+/* ---------- Customize preview ---------- */
+const customSvg = document.getElementById('customSvg');
+let currentColor = '#0B0B0B';
+function renderCustom(){
+  customSvg.innerHTML = `
+    <rect width="300" height="400" fill="#0e0d0b"/>
+    <path d="M150 60 L110 90 L90 380 L130 380 L140 200 L150 170 L160 200 L170 380 L210 380 L190 90 Z" fill="${currentColor}" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="146" cy="230" r="3" fill="#D4AF37"/><circle cx="146" cy="260" r="3" fill="#D4AF37"/><circle cx="146" cy="290" r="3" fill="#D4AF37"/>`;
+}
+renderCustom();
+document.querySelectorAll('.swatch').forEach(sw=>{
+  sw.addEventListener('click', ()=>{
+    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
+    sw.classList.add('active');
+    currentColor = sw.dataset.color;
+    renderCustom();
+  });
+});
+
+/* ---------- Pricing logic ---------- */
+const base_price = 2450;
+const sizeSel = document.getElementById('sizeSel');
+const fitSel = document.getElementById('fitSel');
+const totalAmt = document.getElementById('totalAmt');
+function recalc(){
+  let p = base_price;
+  if(sizeSel.value==='XL') p += 80;
+  if(fitSel.value==='Regular') p -= 40;
+  totalAmt.textContent = 'AED ' + p.toLocaleString();
+}
+sizeSel.addEventListener('change', recalc);
+fitSel.addEventListener('change', recalc);
+
+/* ---------- Toast ---------- */
+const toast = document.getElementById('toast');
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>toast.classList.remove('show'), 2600);
+}
+document.getElementById('addCartBtn').addEventListener('click', ()=>{
+  showToast(`Added to cart — Size ${sizeSel.value}, ${fitSel.value} fit — ${totalAmt.textContent}`);
+});
+document.getElementById('customizeBtn').addEventListener('click', ()=>{
+  document.getElementById('customize').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('joinBtn').addEventListener('click', ()=>showToast('Thanks for joining our list.'));
+
+/* ---------- 3D tilt on hero blazer ---------- */
+const tiltCard = document.getElementById('tiltCard');
+tiltCard.addEventListener('mousemove', (e)=>{
+  const r = tiltCard.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - 0.5;
+  const y = (e.clientY - r.top) / r.height - 0.5;
+  tiltCard.style.transform = `rotateY(${x*14}deg) rotateX(${-y*14}deg)`;
+});
+tiltCard.addEventListener('mouseleave', ()=>{ tiltCard.style.transform = 'rotateY(0) rotateX(0)'; });
+
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Fabric bars animate on view ---------- */
+const barPanel = document.getElementById('barPanel');
+const barIo = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ document.querySelectorAll('.bar-fill').forEach(f=>f.classList.add('in')); barIo.disconnect(); }
+  });
+},{threshold:0.3});
+barIo.observe(barPanel);
+
+/* ---------- Stitch-line scroll tracker ---------- */
+const stitchFill = document.getElementById('stitchFill');
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  stitchFill.style.height = pct + '%';
+});
+
+/* ---------- Mobile nav ---------- */
+const burger = document.querySelector('.navburger');
+const navlinks = document.querySelector('.navlinks');
+burger.addEventListener('click', ()=>{
+  const open = navlinks.style.display === 'flex';
+  navlinks.style.display = open ? 'none' : 'flex';
+  navlinks.style.cssText += 'position:fixed; top:64px; left:0; right:0; background:#0B0B0B; flex-direction:column; padding:24px 22px; border-bottom:1px solid rgba(212,175,55,.22); gap:18px;';
+});
+</script>
+</body>
+</html>
